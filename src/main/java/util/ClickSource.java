@@ -24,7 +24,7 @@ public class ClickSource implements SourceFunction<Event> {
     public void run(SourceContext<Event> ctx) throws Exception {
         while (running) {
             ctx.collect(new Event(userArr[random.nextInt(userArr.length)], urlArr[random.nextInt(urlArr.length)], Calendar.getInstance().getTimeInMillis()));
-            Thread.sleep(1000);
+            Thread.sleep(1000L);
         }
     }
 

@@ -21,8 +21,9 @@ public class Demo06 {
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         executionEnvironment.setParallelism(1);
         executionEnvironment.addSource(new SourceFunction<Integer>() {
-            private boolean running=true;
-            private Random r=new Random();
+            private boolean running = true;
+            private Random r = new Random();
+
             @Override
             public void run(SourceContext<Integer> sourceContext) throws Exception {
 
@@ -36,41 +37,41 @@ public class Demo06 {
 
             @Override
             public void cancel() {
-                running=false;
+                running = false;
             }
-        }).keyBy(r->true).process(new KeyedProcessFunction<Boolean, Integer, String>() {
+        }).keyBy(r -> true).process(new KeyedProcessFunction<Boolean, Integer, String>() {
             private ValueState<Integer> lastInt;
             private ValueState<Long> timerTs;
 
             @Override
             public void open(Configuration parameters) throws Exception {
                 super.open(parameters);
-                lastInt=getRuntimeContext().getState(new ValueStateDescriptor<Integer>("last-integer", Types.INT));
-                timerTs=getRuntimeContext().getState(new ValueStateDescriptor<Long>("timer", Types.LONG));
+                lastInt = getRuntimeContext().getState(new ValueStateDescriptor<>("last-integer", Types.INT));
+                timerTs = getRuntimeContext().getState(new ValueStateDescriptor<>("timer", Types.LONG));
             }
 
             @Override
             public void processElement(Integer integer, KeyedProcessFunction<Boolean, Integer, String>.Context context, Collector<String> collector) throws Exception {
-                Integer prevInt=null;
-                if (lastInt.value()!=null) {
-                    prevInt=lastInt.value();
+                Integer prevInt = null;
+                if (lastInt.value() != null) {
+                    prevInt = lastInt.value();
                 }
                 lastInt.update(integer);
-                Long ts=null;
-                if(timerTs.value()!=null){
-                    ts= timerTs.value();
+                Long ts = null;
+                if (timerTs.value() != null) {
+                    ts = timerTs.value();
                 }
-                if(prevInt==null||integer<=prevInt){
-                    if(ts!=null){
+                if (prevInt == null || integer < prevInt) {
+                    if (ts != null) {
                         context.timerService().deleteProcessingTimeTimer(ts);
                         timerTs.clear();
-                        System.out.println("清除定时器！");
+//                        System.out.println("清除定时器！");
                     }
-                }else if(integer>prevInt&&ts==null){
+                } else if (integer > prevInt && ts == null) {
                     long oneSecLater = context.timerService().currentProcessingTime() + 1000L;
                     context.timerService().registerProcessingTimeTimer(oneSecLater);
                     timerTs.update(oneSecLater);
-                    System.out.println("注册定时器！");
+//                    System.out.println("注册定时器！");
                 }
             }
 
