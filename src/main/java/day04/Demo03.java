@@ -36,6 +36,7 @@ public class Demo03 {
             public void processElement(Event event, KeyedProcessFunction<String, Event, String>.Context context, Collector<String> collector) throws Exception {
 //                计算当前元素所属的窗口的开始时间
                 long currTime = context.timerService().currentProcessingTime();
+//                计算窗口来时时间的计算公式
                 long windowStart = currTime - currTime % windowSize;
                 long windowEnd = windowStart + windowSize;
 
@@ -52,7 +53,7 @@ public class Demo03 {
                 super.onTimer(timestamp, ctx, out);
                 long windowEnd = timestamp + 1L;
                 long windowStart = windowEnd - windowSize;
-                long count = mapState.get(windowStart);
+                int count = mapState.get(windowStart);
                 out.collect("用户：" + ctx.getCurrentKey() + "在窗口" + new Timestamp(windowStart) + "-" + new Timestamp(windowEnd) + "中的pv次数是：" + count);
                 mapState.remove(windowStart);
             }
