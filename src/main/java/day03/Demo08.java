@@ -30,7 +30,7 @@ public class Demo08 {
 
             @Override
             public void processElement(Event event, KeyedProcessFunction<Integer, Event, String>.Context context, Collector<String> collector) throws Exception {
-                if (mapState.contains(event.user)) {
+                if (mapState.contains(event.getUser())) {
                     mapState.put(event.getUser(), mapState.get(event.getUser()) + 1L);
                 } else {
                     mapState.put(event.getUser(), 1L);

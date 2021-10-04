@@ -14,7 +14,7 @@ public class Demo03 {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
         DataStreamSource<Event> eventDataStreamSource = env.addSource(new ClickSource());
-        eventDataStreamSource.filter(r->r.user.equals("Mary")).print();
+        eventDataStreamSource.filter(r->r.getUser().equals("Mary")).print();
 
         eventDataStreamSource.filter(new FilterFunction<Event>() {
             @Override

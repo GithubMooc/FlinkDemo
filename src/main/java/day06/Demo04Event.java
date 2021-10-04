@@ -1,4 +1,4 @@
-package pojo;
+package day06;
 
 import lombok.*;
 
@@ -13,8 +13,8 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Event {
-    private String user;
-    private String url;
+public class Demo04Event {
+    private String userId;
+    private String eventType;
     private Long timestamp;
 }
