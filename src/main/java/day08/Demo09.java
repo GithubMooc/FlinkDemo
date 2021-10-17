@@ -14,7 +14,7 @@ import static org.apache.flink.table.api.Expressions.$;
  * @Author Master
  * @Date 2021/10/9
  * @Time 01:22
- * @Name FlinkSQL 流转为动态表
+ * @Name FlinkSQL 流转为动态表 toRetractStream:可能要作废 toChangelogStream
  */
 public class Demo09 {
     public static void main(String[] args) throws Exception {

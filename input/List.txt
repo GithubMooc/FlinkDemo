@@ -1,0 +1,65 @@
+day01/Demo01: 流处理Word Count
+day01/Demo02: 批处理Word Count
+
+day02/Demo01: 自定义数据源
+day02/Demo02: map的使用，转换算子
+day02/Demo03: filter的使用，转换算子
+day02/Demo04: flatMap的使用，转换算子
+day02/Demo05: 计算数字之和，分别用sum以及reduce，转换算子
+day02/Demo06: 实时计算平均数，转换算子
+day02/Demo07: 重新分区
+
+day03/Demo01: 富函数 RichMapFunction
+day03/Demo02: 富函数 RichParallelSourceFunction
+day03/Demo03: 自定义输出 addSink
+day03/Demo04: KeyedProcessFunction 定时器
+day03/Demo05: 状态变量：ValueState
+day03/Demo06: 状态变量的使用，整数连续1秒上升 报警
+day03/Demo07: ListState 列表状态变量
+day03/Demo08: 字典状态变量 MapState  计算pv平均值  总浏览 ÷ 总用户
+day03/Demo09: 全窗口聚合函数 Flink Window API
+
+day04/Demo01: 增量聚合函数：AggregateFunction累加 每隔5秒钟计算窗口的pv 使用增量聚合函数
+day04/Demo02: 增量聚合函数与全窗口聚合函数结合使用
+day04/Demo03: 使用key模拟一个5秒的滚动窗口，模拟的是增量聚合函数和券窗口函数聚合使用的情况
+day04/Demo04: 水位线 WaterMark
+day04/Demo05: WaterMark+定时器
+day04/Demo06: 设置插入水位线的间隔时间
+day04/Demo07: 实时热门商品 每个商品在每个窗口中的浏览次数
+day04/Demo08: 实时热门商品 每个窗口浏览次数前三名
+
+day05/Demo01: 侧输出流
+day05/Demo02: 迟到数据发送到侧输出流 无窗口
+day05/Demo03: 迟到数据输出到侧输出流 有窗口
+day05/Demo04: 使用迟到数据更新窗口计算结果
+day05/Demo05: 自定义水位线 WaterMarkGenerate 单流
+day05/Demo06: 流的合并 union多条流合并，事件类型一样
+day05/Demo07: 分流水位线规则
+day05/Demo08: 合流水位线规则
+day05/Demo09: connect链接两条流
+day05/Demo10: 配置WebUI，copy from Demo01.java
+day05/Demo11: connect连接流测试
+
+day06/Demo01: CoProcessFunction
+day06/Demo02: 实时对账
+day06/Demo03: 实时对账 模拟真实环境 控制台输入数据
+day06/Demo04: 基于间隔的join
+day06/Demo05: 基于窗口的join
+day06/Demo06: 状态 保存点
+
+day07/Demo01: 写入kafka
+day07/Demo02: 读取kafka
+day07/Demo03: 写入redis
+day07/Demo04: 自定义Sink MySQL
+
+day08/Demo01: 统计UV，独立访客 unique visit
+day08/Demo02: 布隆过滤器
+day08/Demo03: 使用FlinkCEP检测连续3次登录失败
+day08/Demo04: 使用FlinkCEP检测连续3次登录失败，简化pattern
+day08/Demo05: 有限状态机，使用状态机检测连续三次登录失败
+day08/Demo06: CEP处理超时事件
+day08/Demo07: FlinkSQL 流转为动态表 keyBy
+day08/Demo08: 使用SQL查询
+day08/Demo09: FlinkSQL 流转为动态表 keyBy 开窗
+day08/Demo10: FlinkSQL实现取前三名
+day08/Demo11: 数据结构，链表、二叉树和图

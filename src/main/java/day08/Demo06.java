@@ -16,7 +16,7 @@ import java.util.*;
  * @Author Master
  * @Date 2021/10/9
  * @Time 00:45
- * @Name FlinkDemo
+ * @Name CEP处理超时事件
  */
 public class Demo06 {
     public static void main(String[] args) throws Exception {

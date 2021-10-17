@@ -13,7 +13,7 @@ import org.apache.flink.util.Collector;
  * @Author Master
  * @Date 2021/9/30
  * @Time 00:18
- * @Name FlinkDemo
+ * @Name CoProcessFunction
  */
 public class Demo01 {
     public static void main(String[] args) throws Exception {

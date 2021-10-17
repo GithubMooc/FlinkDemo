@@ -18,7 +18,7 @@ public class Demo01 {
         executionEnvironment.setParallelism(1);
         Properties properties = new Properties();
         properties.put("bootstrap.servers","localhost:9092");
-        executionEnvironment.readTextFile("input/UserBehavior.csv").addSink(new FlinkKafkaProducer<String>("test",new SimpleStringSchema(),properties));
+        executionEnvironment.readTextFile("input/UserBehavior.csv").addSink(new FlinkKafkaProducer<>("test", new SimpleStringSchema(), properties));
         executionEnvironment.execute();
     }
 }

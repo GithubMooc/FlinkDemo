@@ -20,7 +20,7 @@ import java.util.*;
  * @Author Master
  * @Date 2021/10/6
  * @Time 23:55
- * @Name FlinkDemo
+ * @Name 读取Kafka数据
  */
 public class Demo02 {
     public static void main(String[] args) throws Exception {
